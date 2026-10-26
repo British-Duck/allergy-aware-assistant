@@ -1,0 +1,218 @@
+=== Task B KB Consistency Check ===
+KB is consistent.
+
+=== Task B Evaluation Results ===
+----------------------------------------------------------------------
+Query: CHECK THAT butter IS Dairy
+Statement: Dairy(butter)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'Dairy(butter)' is directly stored in the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT butter IS NotDairyFree
+Statement: NotDairyFree(butter)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Butter is not dairy-free because it is classified as dairy.
+----------------------------------------------------------------------
+Query: CHECK THAT butter IS UnsafeForMilkAllergy
+Statement: UnsafeForMilkAllergy(butter)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Butter is unsafe for milk allergy because it is dairy, dairy items are not dairy-free, and items that are not dairy-free are unsafe for milk allergy.
+----------------------------------------------------------------------
+Query: CHECK THAT tofu IS Vegan
+Statement: Vegan(tofu)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'Vegan(tofu)' is directly stored in the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT tofu IS Dairy
+Statement: Dairy(tofu)
+Expected: INCORRECT
+Actual:   INCORRECT
+Pass:     True
+Explanation: The negation of 'Dairy(tofu)' is provable from the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT tofu IS DairyFree
+Statement: DairyFree(tofu)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Tofu is dairy-free because it is classified as vegan.
+----------------------------------------------------------------------
+Query: CHECK THAT olive oil IS Vegan
+Statement: Vegan(olive_oil)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'Vegan(olive_oil)' is directly stored in the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT olive oil IS DairyFree
+Statement: DairyFree(olive_oil)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Olive Oil is dairy-free because it is classified as vegan.
+----------------------------------------------------------------------
+Query: CHECK THAT bread IS Gluten
+Statement: Gluten(bread)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'Gluten(bread)' is directly stored in the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT bread IS NotGlutenFree
+Statement: NotGlutenFree(bread)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Bread is not gluten-free because it contains gluten.
+----------------------------------------------------------------------
+Query: CHECK THAT bread IS UnsafeForCoeliac
+Statement: UnsafeForCoeliac(bread)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Bread is unsafe for coeliac users because it contains gluten, gluten items are not gluten-free, and not gluten-free items are unsafe for coeliac users.
+----------------------------------------------------------------------
+Query: CHECK THAT mayonnaise IS Egg
+Statement: Egg(mayonnaise)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'Egg(mayonnaise)' is directly stored in the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT mayonnaise IS NotEggFree
+Statement: NotEggFree(mayonnaise)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Mayonnaise is not egg-free because it contains egg.
+----------------------------------------------------------------------
+Query: CHECK THAT mayonnaise IS UnsafeForEggAllergy
+Statement: UnsafeForEggAllergy(mayonnaise)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Mayonnaise is unsafe for egg allergy because it contains egg, egg items are not egg-free, and not egg-free items are unsafe.
+----------------------------------------------------------------------
+Query: CHECK THAT pesto IS Nut
+Statement: Nut(pesto)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'Nut(pesto)' is directly stored in the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT pesto IS NotNutFree
+Statement: NotNutFree(pesto)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Pesto is not nut-free because it contains nuts.
+----------------------------------------------------------------------
+Query: CHECK THAT pesto IS UnsafeForNutAllergy
+Statement: UnsafeForNutAllergy(pesto)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Pesto is unsafe for nut allergy because it contains nuts, nut items are not nut-free, and not nut-free items are unsafe.
+----------------------------------------------------------------------
+Query: CHECK THAT tahini IS Sesame
+Statement: Sesame(tahini)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'Sesame(tahini)' is directly stored in the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT tahini IS Seed
+Statement: Seed(tahini)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'Seed(tahini)' is directly stored in the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT tahini IS UnsafeForSesameAllergy
+Statement: UnsafeForSesameAllergy(tahini)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'UnsafeForSesameAllergy(tahini)' is provable from the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT rice milk IS DairyFree
+Statement: DairyFree(rice_milk)
+Expected: UNKNOWN
+Actual:   UNKNOWN
+Pass:     True
+Explanation: Neither 'DairyFree(rice_milk)' nor its negation can be proved from the knowledge base.
+----------------------------------------------------------------------
+Query: I KNOW THAT rice milk IS Vegan
+Statement: Vegan(rice_milk)
+Expected: ADDED
+Actual:   ADDED
+Pass:     True
+Explanation: I have added 'Vegan(rice_milk)' to the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT rice milk IS Vegan
+Statement: Vegan(rice_milk)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'Vegan(rice_milk)' is directly stored in the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT rice milk IS DairyFree
+Statement: DairyFree(rice_milk)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Rice Milk is dairy-free because it is classified as vegan.
+----------------------------------------------------------------------
+Query: CHECK THAT rice milk IS Nut
+Statement: Nut(rice_milk)
+Expected: UNKNOWN
+Actual:   UNKNOWN
+Pass:     True
+Explanation: Neither 'Nut(rice_milk)' nor its negation can be proved from the knowledge base.
+----------------------------------------------------------------------
+Query: I KNOW THAT butter IS Vegan
+Statement: Vegan(butter)
+Expected: REJECTED
+Actual:   REJECTED
+Pass:     True
+Explanation: That would contradict what I already know.
+----------------------------------------------------------------------
+Query: CHECK THAT nutella IS Nut
+Statement: Nut(nutella)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: The statement 'Nut(nutella)' is directly stored in the knowledge base.
+----------------------------------------------------------------------
+Query: CHECK THAT nutella IS UnsafeForNutAllergy
+Statement: UnsafeForNutAllergy(nutella)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Nutella is unsafe for nut allergy because it contains nuts, nut items are not nut-free, and not nut-free items are unsafe.
+----------------------------------------------------------------------
+Query: CHECK THAT couscous IS UnsafeForCoeliac
+Statement: UnsafeForCoeliac(couscous)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Couscous is unsafe for coeliac users because it contains gluten, gluten items are not gluten-free, and not gluten-free items are unsafe for coeliac users.
+----------------------------------------------------------------------
+Query: CHECK THAT cream IS UnsafeForMilkAllergy
+Statement: UnsafeForMilkAllergy(cream)
+Expected: CORRECT
+Actual:   CORRECT
+Pass:     True
+Explanation: Cream is unsafe for milk allergy because it is dairy, dairy items are not dairy-free, and items that are not dairy-free are unsafe for milk allergy.
+
+=== Summary ===
+Passed: 30/30
+Accuracy: 100.00%

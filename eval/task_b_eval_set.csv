@@ -1,0 +1,31 @@
+mode,entity,property,expected,notes
+CHECK,butter,Dairy,CORRECT,direct fact
+CHECK,butter,NotDairyFree,CORRECT,derived from dairy rule
+CHECK,butter,UnsafeForMilkAllergy,CORRECT,multi-step derivation
+CHECK,tofu,Vegan,CORRECT,direct fact
+CHECK,tofu,Dairy,INCORRECT,negated fact exists
+CHECK,tofu,DairyFree,CORRECT,derived from vegan rule
+CHECK,olive oil,Vegan,CORRECT,direct fact with space normalisation
+CHECK,olive oil,DairyFree,CORRECT,derived from vegan rule
+CHECK,bread,Gluten,CORRECT,direct fact
+CHECK,bread,NotGlutenFree,CORRECT,derived from gluten rule
+CHECK,bread,UnsafeForCoeliac,CORRECT,multi-step derivation
+CHECK,mayonnaise,Egg,CORRECT,direct fact
+CHECK,mayonnaise,NotEggFree,CORRECT,derived from egg rule
+CHECK,mayonnaise,UnsafeForEggAllergy,CORRECT,multi-step derivation
+CHECK,pesto,Nut,CORRECT,direct fact
+CHECK,pesto,NotNutFree,CORRECT,derived from nut rule
+CHECK,pesto,UnsafeForNutAllergy,CORRECT,multi-step derivation
+CHECK,tahini,Sesame,CORRECT,direct fact
+CHECK,tahini,Seed,CORRECT,derived from sesame rule
+CHECK,tahini,UnsafeForSesameAllergy,CORRECT,multi-step derivation
+CHECK,rice milk,DairyFree,UNKNOWN,should be unknown before addition
+ADD,rice milk,Vegan,ADDED,user adds new fact
+CHECK,rice milk,Vegan,CORRECT,newly added fact
+CHECK,rice milk,DairyFree,CORRECT,derived from newly added vegan fact
+CHECK,rice milk,Nut,UNKNOWN,no evidence either way
+ADD,butter,Vegan,REJECTED,should conflict with dairy knowledge
+CHECK,nutella,Nut,CORRECT,direct fact
+CHECK,nutella,UnsafeForNutAllergy,CORRECT,derived from nut rule
+CHECK,couscous,UnsafeForCoeliac,CORRECT,derived from gluten rule
+CHECK,cream,UnsafeForMilkAllergy,CORRECT,derived from dairy rule

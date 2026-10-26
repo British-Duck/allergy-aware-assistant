@@ -1,0 +1,13 @@
+=== Task C Sample Image Test ===
+greek_salad_demo.jpg -> greek_salad (99.46%)
+greek_salad_demo2.jpg -> greek_salad (99.85%)
+hamburger_demo.jpg -> hamburger (98.47%)
+hamburger_demo2.jpg -> hamburger (99.70%)
+ice_cream_demo.jpg -> ice_cream (98.79%)
+ice_cream_demo2.jpg -> ice_cream (99.27%)
+pizza_demo.jpg -> pizza (99.59%)
+pizza_demo2.jpg -> pizza (99.97%)
+steak_demo.jpg -> steak (96.36%)
+steak_demo2.jpg -> steak (77.46%)
+sushi_demo.jpg -> sushi (99.86%)
+sushi_demo2.jpg -> sushi (95.37%)

@@ -1,0 +1,60 @@
+query,expected_behavior,expected_topic,notes
+
+Is butter dairy free,ANSWER,dairy,close match
+Does butter contain dairy,ANSWER,dairy,close match
+Is ghee dairy-free,ANSWER,dairy,close match
+Does whey contain dairy,ANSWER,dairy,keyword test (whey)
+Does casein contain dairy,ANSWER,dairy,keyword test (casein)
+Is margarine dairy free,ANSWER,dairy,paraphrase
+Is dark chocolate dairy-free,ANSWER,dairy,paraphrase
+
+Does soy sauce contain gluten,ANSWER,gluten,close match
+Is soy sauce gluten free,ANSWER,gluten,paraphrase
+Can coeliacs eat soy sauce,ANSWER,gluten,paraphrase (medical wording)
+Is tamari gluten-free,ANSWER,gluten,close match
+Are oats gluten free,ANSWER,gluten,paraphrase
+Is couscous gluten-free,ANSWER,gluten,close match
+Does malt vinegar contain gluten,ANSWER,gluten,close match
+Is cornflour gluten free,ANSWER,gluten,paraphrase
+
+Is mayonnaise egg-free,ANSWER,egg,close match
+Does pasta contain eggs,ANSWER,egg,close match
+Is meringue egg free,ANSWER,egg,close match
+Do marshmallows contain egg,ANSWER,egg,close match
+Can I replace eggs in baking,ANSWER,substitution,paraphrase
+
+Does pesto contain nuts,ANSWER,nuts,paraphrase
+Is pesto nut free,ANSWER,nuts,close match
+Does Nutella contain nuts,ANSWER,nuts,close match
+Is almond flour nut-free,ANSWER,nuts,close match
+Does satay sauce contain nuts,ANSWER,nuts,close match
+Is hummus nut-free,ANSWER,nuts,paraphrase
+
+Substitute for milk,ANSWER,substitution,close match
+Substitute for butter,ANSWER,substitution,close match
+Substitute for eggs,ANSWER,substitution,close match
+Substitute for wheat flour,ANSWER,substitution,close match
+Substitute for breadcrumbs,ANSWER,substitution,close match
+
+Nut free recipes,ANSWER,recipes,close match
+Dairy free recipes,ANSWER,recipes,close match
+Gluten free recipes,ANSWER,recipes,close match
+
+Is plastic gluten free,REFUSE,out_of_scope,should refuse safely
+Can I eat the moon,REFUSE,out_of_scope,should refuse safely
+What is the best laptop,REFUSE,out_of_scope,should refuse safely
+Is air dairy free,REFUSE,out_of_scope,should refuse safely
+Does water contain nuts,REFUSE,out_of_scope,should refuse safely
+
+
+Can people with coeliac disease safely eat soy sauce,ANSWER,gluten,semantic paraphrase (SBERT should help)
+Is soy sauce made with wheat,ANSWER,gluten,semantic paraphrase
+Could someone allergic to milk have ghee,ANSWER,dairy,semantic paraphrase
+What can I use instead of eggs in a cake,ANSWER,substitution,semantic paraphrase
+I need a replacement for butter in baking,ANSWER,substitution,semantic paraphrase
+Is pesto safe if I cannot eat nuts,ANSWER,nuts,semantic paraphrase
+Does couscous have wheat in it,ANSWER,gluten,semantic paraphrase
+Are oats okay for someone who needs strict gluten free,ANSWER,gluten,semantic paraphrase
+Is margarine usually made with milk,ANSWER,dairy,semantic paraphrase
+What swap can I use for breadcrumbs if gluten free,ANSWER,substitution,semantic paraphrase
+

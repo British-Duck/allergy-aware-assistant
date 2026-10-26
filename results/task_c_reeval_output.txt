@@ -1,0 +1,21 @@
+Found 180 files belonging to 6 classes.
+              precision    recall  f1-score   support
+
+ greek_salad     0.9310    0.9000    0.9153        30
+   hamburger     0.9355    0.9667    0.9508        30
+   ice_cream     0.8788    0.9667    0.9206        30
+       pizza     1.0000    1.0000    1.0000        30
+       steak     0.8125    0.8667    0.8387        30
+       sushi     1.0000    0.8333    0.9091        30
+
+    accuracy                         0.9222       180
+   macro avg     0.9263    0.9222    0.9224       180
+weighted avg     0.9263    0.9222    0.9224       180
+
+Confusion Matrix:
+[[27  0  2  0  1  0]
+ [ 0 29  1  0  0  0]
+ [ 0  0 29  0  1  0]
+ [ 0  0  0 30  0  0]
+ [ 1  2  1  0 26  0]
+ [ 1  0  0  0  4 25]]

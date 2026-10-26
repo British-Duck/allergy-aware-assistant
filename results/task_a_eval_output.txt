@@ -1,0 +1,78 @@
+=== Task A Evaluation ===
+KB questions: 60
+Eval rows: 49
+Eval columns: ['query', 'expected_behavior', 'expected_topic', 'notes']
+SIM_THRESHOLD: 0.35
+
+
+=== TFIDF Summary ===
+Total evaluated: 49
+Behavior correctness: 49/49 = 100.00%
+
+=== TFIDF Evidence samples (use in write-up) ===
+
+Query: Is butter dairy free
+Decision: ANSWER (score=0.721)
+Top KB match: Does butter contain dairy?
+Answer: Yes. Butter is a dairy product made from milk fat. Use a dairy‑free spread or oil if you need to avoid dairy.
+
+Query: Does butter contain dairy
+Decision: ANSWER (score=1.000)
+Top KB match: Does butter contain dairy?
+Answer: Yes. Butter is a dairy product made from milk fat. Use a dairy‑free spread or oil if you need to avoid dairy.
+
+Query: Is ghee dairy-free
+Decision: ANSWER (score=1.000)
+Top KB match: Is ghee dairy-free?
+Answer: Ghee is clarified butter, so it starts as dairy. It may have very low milk protein, but it’s not guaranteed safe for milk allergy. For allergies, choose a non‑dairy fat instead.
+
+Query: Is plastic gluten free
+Decision: REFUSE (score=0.803)
+Top KB match: Gluten free recipes
+Answer: Gluten‑free ideas: (1) rice noodle stir‑fry, (2) quinoa salad bowls, (3) baked potatoes with safe toppings. If you need strict GF, I’ll also flag cross‑contamination risks.
+
+Query: Can I eat the moon
+Decision: REFUSE (score=0.000)
+Top KB match: SAFE DISCLAIMER
+Answer: I’m an educational chatbot, not a clinician. For serious or life‑threatening allergies, always follow medical advice and check product labels. If someone has trouble breathing, swelling, or feels faint, call emergency services immediately (UK: 999/112).
+
+Query: What is the best laptop
+Decision: REFUSE (score=0.000)
+Top KB match: SAFE DISCLAIMER
+Answer: I’m an educational chatbot, not a clinician. For serious or life‑threatening allergies, always follow medical advice and check product labels. If someone has trouble breathing, swelling, or feels faint, call emergency services immediately (UK: 999/112).
+
+=== SBERT Summary ===
+Total evaluated: 49
+Behavior correctness: 49/49 = 100.00%
+
+=== SBERT Evidence samples (use in write-up) ===
+
+Query: Is butter dairy free
+Decision: ANSWER (score=0.981)
+Top KB match: Is butter dairy-free?
+Answer: No. Butter is made from milk, so it contains dairy. For dairy‑free cooking, use plant‑based butter or oils, and always check labels for hidden milk ingredients.
+
+Query: Does butter contain dairy
+Decision: ANSWER (score=0.985)
+Top KB match: Does butter contain dairy?
+Answer: Yes. Butter is a dairy product made from milk fat. Use a dairy‑free spread or oil if you need to avoid dairy.
+
+Query: Is ghee dairy-free
+Decision: ANSWER (score=0.990)
+Top KB match: Is ghee dairy-free?
+Answer: Ghee is clarified butter, so it starts as dairy. It may have very low milk protein, but it’s not guaranteed safe for milk allergy. For allergies, choose a non‑dairy fat instead.
+
+Query: Is plastic gluten free
+Decision: REFUSE (score=0.689)
+Top KB match: Is beer gluten-free?
+Answer: Most standard beers contain gluten (from barley/wheat). Look for beer labelled gluten‑free if required.
+
+Query: Can I eat the moon
+Decision: REFUSE (score=0.335)
+Top KB match: Do marshmallows contain egg?
+Answer: Usually no; they more commonly contain gelatine. However, recipes vary—always check the ingredient list.
+
+Query: What is the best laptop
+Decision: REFUSE (score=0.159)
+Top KB match: WHAT CAN YOU DO
+Answer: I can: (1) note allergens you want to avoid, (2) help check whether common ingredients often contain dairy/gluten/egg/nuts, (3) suggest safe substitutions, and (4) suggest recipe ideas. I’ll also highlight cross‑contamination risks.

@@ -1,0 +1,351 @@
+<aiml version="1.0.1" encoding="UTF-8">
+
+<!-- Greetings and Politeness -->
+<category> <pattern> HELLO </pattern>
+  <template>Hello! How are you?</template> </category>
+
+<category> <pattern> HELLO * </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HI </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HI * </pattern>
+  <template><srai>HELLO</srai></template> </category>
+
+<category> <pattern> HOW ARE YOU </pattern>
+  <template>I'm functioning within normal parameters, thanks for asking.</template></category>
+  
+<category><pattern> I AM FINE </pattern>
+  <template>That's good to know. What would you like to discuss about?</template></category>
+
+<category><pattern> BYE </pattern>
+  <template>#0$Bye! Nice talking to you. You take care now.</template></category>
+
+<category><pattern> GOODBYE </pattern>
+  <template><srai>BYE</srai></template></category>
+
+<category><pattern> EXIT </pattern>
+  <template><srai>BYE</srai></template></category>
+
+<category> <pattern> THANKS </pattern>
+  <template>You are welcome.</template></category>
+
+<category> <pattern> THANK YOU </pattern>
+  <template><srai>THANKS</srai></template></category>
+
+<category> <pattern> CHEERS </pattern>
+  <template>Sure mate.</template></category>
+
+<category> <pattern> CHEERS * </pattern>
+  <template>Sure mate.</template></category>
+
+<!--- Wikipedia API -->
+<category><pattern> WHAT IS A * </pattern>
+  <template>#1$<star index="1"/></template></category>
+
+<category><pattern> WHAT IS AN * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> WHAT IS * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> DEFINE * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<category><pattern> WHO IS * </pattern>
+  <template><srai>WHAT IS A <star/></srai></template></category>
+
+<!-- ========================================================= -->
+<!-- TASK A: ALLERGY-AWARE SOUS-CHEF (30 AIML CATEGORIES)       -->
+<!-- Paste these ABOVE your final catch-all: <pattern>*</pattern> -->
+<!-- ========================================================= -->
+
+<!-- ===================== -->
+<!-- A) SAFETY / HELP (6)  -->
+<!-- ===================== -->
+
+<category>
+  <pattern>SAFE DISCLAIMER</pattern>
+  <template>
+    Important: I’m an educational chatbot, not a clinician. Always check product labels and follow medical advice.
+    If someone has breathing trouble, swelling, or feels faint, call emergency services (UK: 999/112).
+  </template>
+</category>
+
+<category>
+  <pattern>HELP ALLERGY</pattern>
+  <template>
+    Tell me what allergen(s) you avoid (e.g., peanuts, milk, egg, gluten). Then ask things like:
+    IS * DAIRY FREE, DOES * CONTAIN GLUTEN, SUBSTITUTE FOR EGGS, or DAIRY FREE RECIPES.
+  </template>
+</category>
+
+<category>
+  <pattern>WHAT CAN YOU DO</pattern>
+  <template>
+    I can help you: (1) record allergens to avoid, (2) check common ingredients for dairy/gluten/egg/nuts,
+    (3) suggest substitutions, and (4) suggest allergy-aware recipe ideas. I’ll also warn about cross-contamination.
+  </template>
+</category>
+
+<category>
+  <pattern>ARE YOU A DOCTOR</pattern>
+  <template>
+    No. I can help with general food/allergen guidance, but I’m not a clinician. Always check labels and follow medical advice for allergies.
+  </template>
+</category>
+
+<category>
+  <pattern>EMERGENCY</pattern>
+  <template>
+    If this is an emergency (trouble breathing, throat swelling, collapse), call emergency services immediately (UK: 999/112)
+    and use an auto-injector if prescribed.
+  </template>
+</category>
+
+<category>
+  <pattern>CROSS CONTAMINATION</pattern>
+  <template>
+    Cross-contamination is when traces of an allergen get into a ‘safe’ food via shared utensils, boards, fryers, toasters,
+    hands, or surfaces. If you need strict avoidance, keep tools separate and clean thoroughly.
+  </template>
+</category>
+
+
+<!-- =========================== -->
+<!-- TASK A: ALLERGY CAPTURE (8)      -->
+<!-- Stores user allergy text in a variable for this chat session -->
+<!-- =========================== -->
+
+<category>
+  <pattern>I AM ALLERGIC TO *</pattern>
+  <template>
+    <think><set name="allergy"><star/></set></think>
+    Thanks — I’ll treat <get name="allergy"/> as unsafe. Are there any other allergens you need to avoid?
+  </template>
+</category>
+
+<category>
+  <pattern>I HAVE A * ALLERGY</pattern>
+  <template>
+    <think><set name="allergy"><star/></set></think>
+    Understood — I’ll treat <get name="allergy"/> as unsafe. Do you want strict avoidance (including ‘may contain’ warnings)?
+  </template>
+</category>
+
+<category>
+  <pattern>AVOID *</pattern>
+  <template>
+    <think><set name="allergy"><star/></set></think>
+    Okay — I’ll try to avoid <get name="allergy"/> in suggestions. Ask me about ingredients or substitutions anytime.
+  </template>
+</category>
+
+<category>
+  <pattern>MY ALLERGIES ARE *</pattern>
+  <template>
+    <think><set name="allergy"><star/></set></think>
+    Got it — I’ll keep these in mind: <get name="allergy"/>. You can now ask ingredient checks like: IS BUTTER DAIRY FREE.
+  </template>
+</category>
+
+<category>
+  <pattern>I CANT EAT *</pattern>
+  <template>
+    <think><set name="allergy"><star/></set></think>
+    Understood — I’ll avoid: <get name="allergy"/>. Do you also need help with cross-contamination precautions?
+  </template>
+</category>
+
+<category>
+  <pattern>WHAT ARE MY ALLERGIES</pattern>
+  <template>
+    <condition name="allergy">
+      <li value="">You haven’t told me any allergens yet. Try: I AM ALLERGIC TO PEANUTS.</li>
+      <li>You told me to avoid: <get name="allergy"/>.</li>
+    </condition>
+  </template>
+</category>
+
+
+<category>
+  <pattern>CLEAR ALLERGIES</pattern>
+  <template>
+    <think><set name="allergy"></set></think>
+    Okay — I’ve cleared the allergy list for this chat. Tell me again with: I AM ALLERGIC TO ...
+  </template>
+</category>
+
+<category>
+  <pattern>DO YOU REMEMBER MY ALLERGY</pattern>
+  <template><srai>WHAT ARE MY ALLERGIES</srai></template>
+</category>
+
+
+<!-- ================================= -->
+<!-- TASK A: INGREDIENT CHECK ROUTING (8)   -->
+<!-- Routes to Python cmd==99 via #99$ -->
+<!-- ================================= -->
+
+<category>
+  <pattern>IS * DAIRY FREE</pattern>
+  <template>#99$Is <star/> dairy-free?</template>
+</category>
+
+<category>
+  <pattern>DOES * CONTAIN DAIRY</pattern>
+  <template>#99$Does <star/> contain dairy?</template>
+</category>
+
+<category>
+  <pattern>IS * GLUTEN FREE</pattern>
+  <template>#99$Is <star/> gluten-free?</template>
+</category>
+
+<category>
+  <pattern>DOES * CONTAIN GLUTEN</pattern>
+  <template>#99$Does <star/> contain gluten?</template>
+</category>
+
+<category>
+  <pattern>IS * EGG FREE</pattern>
+  <template>#99$Is <star/> egg-free?</template>
+</category>
+
+<category>
+  <pattern>DOES * CONTAIN EGGS</pattern>
+  <template>#99$Does <star/> contain eggs?</template>
+</category>
+
+<category>
+  <pattern>IS * NUT FREE</pattern>
+  <template>#99$Is <star/> nut-free?</template>
+</category>
+
+<category>
+  <pattern>DOES * CONTAIN NUTS</pattern>
+  <template>#99$Does <star/> contain nuts?</template>
+</category>
+
+
+<!-- ====================== -->
+<!-- TASK A: D) SUBSTITUTIONS (5)   -->
+<!-- ====================== -->
+
+<category>
+  <pattern>SUBSTITUTE FOR MILK</pattern>
+  <template>#99$Substitute for milk</template>
+</category>
+
+<category>
+  <pattern>SUBSTITUTE FOR BUTTER</pattern>
+  <template>#99$Substitute for butter</template>
+</category>
+
+<category>
+  <pattern>SUBSTITUTE FOR EGGS</pattern>
+  <template>#99$Substitute for eggs</template>
+</category>
+
+<category>
+  <pattern>SUBSTITUTE FOR WHEAT FLOUR</pattern>
+  <template>#99$Substitute for wheat flour</template>
+</category>
+
+<category>
+  <pattern>SUBSTITUTE FOR BREADCRUMBS</pattern>
+  <template>#99$Substitute for breadcrumbs</template>
+</category>
+
+
+<!-- ===================== -->
+<!-- TASK A E) RECIPE PROMPTS (3) -->
+<!-- ===================== -->
+
+<category>
+  <pattern>NUT FREE RECIPES</pattern>
+  <template>#99$Nut free recipes</template>
+</category>
+
+<category>
+  <pattern>DAIRY FREE RECIPES</pattern>
+  <template>#99$Dairy free recipes</template>
+</category>
+
+<category>
+  <pattern>GLUTEN FREE RECIPES</pattern>
+  <template>#99$Gluten free recipes</template>
+</category>
+
+<!-- ===================== -->
+<!-- END OF 30 CATEGORIES  -->
+<!-- ===================== -->
+
+
+<!-- ============================ -->
+<!-- TASK B: LOGICAL REASONING -->
+<!-- ============================ -->
+
+<category>
+  <pattern>I KNOW THAT * IS *</pattern>
+  <template>#41$<star index="1"/>$<star index="2"/></template>
+</category>
+
+<category>
+  <pattern>CHECK THAT * IS *</pattern>
+  <template>#42$<star index="1"/>$<star index="2"/></template>
+</category>
+
+<!-- ============================ -->
+<!-- TASK C: IMAGE CLASSIFICATION -->
+<!-- ============================ -->
+
+<category>
+  <pattern>WHAT IS IN THIS IMAGE</pattern>
+  <template>#51$image_classify</template>
+</category>
+
+<category>
+  <pattern>CLASSIFY THIS IMAGE</pattern>
+  <template>#51$image_classify</template>
+</category>
+
+<category>
+  <pattern>WHAT FOOD IS THIS</pattern>
+  <template>#51$image_classify</template>
+</category>
+
+<category>
+  <pattern>IDENTIFY THIS IMAGE</pattern>
+  <template>#51$image_classify</template>
+</category>
+
+<!-- ============================ -->
+<!-- TASK C EXTENSION: CLOUD API -->
+<!-- ============================ -->
+
+<category>
+  <pattern>WHAT DOES GOOGLE THINK THIS IS</pattern>
+  <template>#52$cloud_image_classify</template>
+</category>
+
+<category>
+  <pattern>CLOUD CLASSIFY THIS IMAGE</pattern>
+  <template>#52$cloud_image_classify</template>
+</category>
+
+<category>
+  <pattern>COMPARE LOCAL AND CLOUD</pattern>
+  <template>#53$cloud_compare</template>
+</category>
+
+
+
+
+
+<!-- Default reaction -->
+<category><pattern> * </pattern>
+  <template>#99$<star index="1"/></template></category>
+
+</aiml>
